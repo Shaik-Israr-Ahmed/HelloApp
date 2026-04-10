@@ -2,25 +2,25 @@ package com.example;
 
 public class Hello_App {
     public static void main(String[] args) {
-    	String names;
+    	String result;
 
         if (args.length == 0) {
-            names = "World";
+            result = "World";
         } else {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean first = true;
 
+           
             for (String name : args) {
-                if (!first) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(name);
-                first = false;
+                nameBuilder.append(name).append(", ");
             }
 
-            names = nameBuilder.toString();
+            if (nameBuilder.length() > 0) {
+                result = nameBuilder.substring(0, nameBuilder.length() - 2);
+            } else {
+                result = "World";
+            }
         }
 
-        System.out.println("Hello, " + names + "!");
+        System.out.println("Hello, " + result + "!");
     }
 }
